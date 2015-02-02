@@ -116,21 +116,6 @@ while n!=0:
 ##n=int(input("Donnez n ? "))
 ##print("L'intégrale est : ",integrale(a,b,n,f))
 
-#6
-from turtle import *
-def brique(x,y,longueur,hauteur):
-    up()
-    goto(x,y)
-    down()
-    forward(longueur),left(90)
-    forward(hauteur),left(90)
-    forward(longueur),left(90)
-    forward(hauteur),left(90)
-
-def murBrique(x,y,nbHorizontal,nbVertical):
-    for i in range(0,nbVertical,1):
-        for j in range(0,nbHorizontal,1):
-            brique(x+80*j,y+20*i,80,20)
 
 
             
