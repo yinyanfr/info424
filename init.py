@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 # Info224 TD3 4 Yin Yan
+# Petit modif bidon
 
 # Exo 1
 def supprime_espace_aux_extremites(chaine):
@@ -120,6 +120,3 @@ while n!=0:
 
 
             
-=======
-print("Hello World!")
->>>>>>> 6eedbbbdf27aad9b0c314527aeb8020aa802c19b
