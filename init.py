@@ -1,5 +1,6 @@
 # Info224 TD3 4 Yin Yan
 # Petit modif bidon
+# complit 1
 
 # Exo 1
 def supprime_espace_aux_extremites(chaine):
