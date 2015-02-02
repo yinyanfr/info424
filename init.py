@@ -14,7 +14,7 @@ def supprime_espace_aux_extremites(chaine):
 
 # Exo 3
 def exo3_main():
-    t = input("tapez des flottants ")
+    t = input("tapez des flottants wtf ")
     return exo3_output(t)
 
 def exo3_output(t):
@@ -43,10 +43,4 @@ def renverse(c):
         res = res + c[i]
     return res
 
-# Q2
-def est(c):
-    t=True
-    for i in range(len(c)):
-        if c[i]!=c[-i-1]:
-            t=False
-    return t
+
