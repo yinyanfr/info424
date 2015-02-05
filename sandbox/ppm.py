@@ -1,6 +1,6 @@
 __author__ = 'Ian'
 
-# This is the class for the pgm format
+# This is the class for the ppm format
 # At the moment as a prototype of generator which should be written by java
 # And will after be used for analysing
 
@@ -17,7 +17,7 @@ class PGM:
         self.width = 0
         self.matrix = [[0 for col in range(self.height)] for row in range(self.width)] # matrix[height][width]
 
-        if create[-3:] == "pgm":
+        if create[-3:] == "ppm":
             self.file = open(create,'r+')  # if file name, open the file
         else:
             self.file = open(self.create_file(create))  # else create one as ordered
@@ -43,6 +43,7 @@ class PGM:
     def matrix_to_string(self):  # function in : convert the matrix to string
         res = ""
         # TODO
+        # Differs from class pgm
 
         return res
 
