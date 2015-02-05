@@ -17,7 +17,7 @@ class PGM:
         self.width = 0
         self.matrix = [[0 for col in range(self.height)] for row in range(self.width)] # matrix[height][width]
 
-        if create[-3:] == "ppm":
+        if create[-3:] == "pgm":
             self.file = open(create,'r+')  # if file name, open the file
         else:
             self.file = open(self.create_file(create))  # else create one as ordered
