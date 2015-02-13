@@ -15,7 +15,8 @@ P5		(type p5)
 255		(valeur du niveau de gris max 255)
 
 
-La partie de donnée : leste des valeurs de niveau de gris par pixel comprises entre 0(noir) et 255(blanc), enregistré ligne par ligne.
+La partie de donnée : leste des valeurs de niveau de gris par pixel comprises entre 0(noir) et 255(blanc), 
+enregistré ligne par ligne.
 
 
 Type P5 : chaque pixel est représenté en binaire
