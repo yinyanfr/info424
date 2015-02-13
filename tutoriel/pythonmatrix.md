@@ -6,6 +6,8 @@
 self.matrix = [[head[3] for col in range(int(self.height))] for row in range(int(self.width))]
 ```
 
+## manipuler un matrice
+
 ```
     def file_to_mat(self):  # function in out: convert file into a matrix
         while True:
