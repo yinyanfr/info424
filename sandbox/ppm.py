@@ -5,7 +5,7 @@ __author__ = 'Ian'
 # And will after be used for analysing
 
 
-class PGM:
+class PPM:
 
     # self
 
