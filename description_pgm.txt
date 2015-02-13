@@ -17,3 +17,5 @@ La partie de donnée : leste des valeurs de niveau de gris par pixel comprises 
 
 Type P5 : chaque pixel est représenté en binaire
 Type P2 : chaque pixel est représenté par chaîne de caractaire.
+
+
