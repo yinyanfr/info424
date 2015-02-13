@@ -1,9 +1,12 @@
 PGM (portable greymap file format) est un format d'image, les files sont nomer de "nom.pgm".
-Il y a deux type de file pgm : p2 et p5 , ils sont tous composés d'un en-tête de quelque lignes qui contient les informations d'image et la partie de donnée qui est codé pas des valeurs représentant le niveau de gris de leurs pixels.
+Il y a deux type de file pgm : p2 et p5 , ils sont tous composés d'un en-tête de quelque lignes qui 
+contient les informations d'image et la partie de donnée qui est codé pas des valeurs représentant 
+le niveau de gris de leurs pixels.
 
 
 Détaille de la partie d'en-tête :
-il contient 4 parties : 1, type de pgm (p2 ou p5) ; 2, largeur d'image;3,hauteur d'image;maximum de valeur de niveau de gris (0-255).
+il contient 4 parties : 1, type de pgm (p2 ou p5) ; 2, largeur d'image;3,hauteur d'image;maximum de valeur de 
+niveau de gris (0-255).
 les 4 parties sont séparés par  ' ', 'TAB','entrée',etc.
 
 Par exemple :
@@ -12,8 +15,11 @@ P5		(type p5)
 255		(valeur du niveau de gris max 255)
 
 
-La partie de donnée : leste des valeurs de niveau de gris par pixel comprises entre 0(noir) et 255(blanc), enregistré ligne par ligne.
+La partie de donnée : leste des valeurs de niveau de gris par pixel comprises entre 0(noir) et 255(blanc), 
+enregistré ligne par ligne.
 
 
 Type P5 : chaque pixel est représenté en binaire
 Type P2 : chaque pixel est représenté par chaîne de caractaire.
+
+
