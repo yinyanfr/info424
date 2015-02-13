@@ -8,10 +8,14 @@ Voici un projet informatique en generer et analyser les elements en dessin simpl
 ## Progrès
 ### Semaine 1
 Etre familier avec github,
+
 decider les langages à utiliser
 
 ### Semaine 2
 Completer la description du projet,
+
 commencer à collecter les données des langages,
+
 ranger les documents et tutoriel des langages
+
 commencer à coder avec python
