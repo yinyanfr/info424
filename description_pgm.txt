@@ -23,3 +23,4 @@ Type P5 : chaque pixel est représenté en binaire
 Type P2 : chaque pixel est représenté par chaîne de caractaire.
 
 
+LAMA SAVOIE/WIKI--infor424
