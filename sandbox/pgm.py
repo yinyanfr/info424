@@ -24,9 +24,9 @@ class PGM:
         self.filecache = ""
         
         if create[-3:] == "pgm":
-            get_file(create)  # if file name, open the file
+            self.get_file(create)  # if file name, open the file
         else:
-            create_file(create) # else create one as ordered
+            self.create_file(create) # else create one as ordered
 
     # Methods
     def get_file(self,name):
@@ -49,9 +49,9 @@ class PGM:
         self.width = head[2]
         if not head[3]:
             head[3] = WHITE
-        self.matrix = [[head[3] for col in range(self.height)] for row in range(self.width)]
+        self.matrix = [[head[3] for col in range(int(self.height))] for row in range(int(self.width))]
         # matrix[height][width]
-        whole += matrix_to_string()
+        whole += self.matrix_to_string()
         f.write(whole)
         f.close()
         self.file = open(head[0],"r")
@@ -63,7 +63,7 @@ class PGM:
         while True:
             l = self.file.readline()
             self.matrix.append(l[:-1].split(" "))
-            if l = "":
+            if l == "":
                 return self
             
 
