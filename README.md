@@ -24,3 +24,9 @@ commencer à coder avec python
 finir tutoriel de matrice en python
 
 commencer à coder ce qu'on a fait sur python en Java 
+
+Java shi ge hao yu yan 
+
+Java da fa hao 
+
+ni quan jia dou shi Java
