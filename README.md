@@ -25,8 +25,8 @@ finir tutoriel de matrice en python
 
 commencer à coder ce qu'on a fait sur python en Java 
 
-Java shi ge hao yu yan 
+Java shige haoyuyan 
 
-Java da fa hao 
+Java dafahao 
 
-ni quan jia dou shi Java
+niquanjia doushi Java
