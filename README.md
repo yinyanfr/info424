@@ -23,10 +23,12 @@ commencer à coder avec python
 ### Semaine 3
 finir tutoriel de matrice en python
 
+Ajouter code qui analise type de image en python
+
 commencer à coder ce qu'on a fait sur python en Java 
 
 Java shige haoyuyan 
 
 Java dafahao 
 
-niquanjia doushi Java
+//niquanjia doushi Java
