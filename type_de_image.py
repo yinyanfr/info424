@@ -1,5 +1,4 @@
 import imghdr
-import imghdr
 
 IMG_PATH = None
 
