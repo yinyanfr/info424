@@ -2,7 +2,9 @@
 
 ##intro
 En Python on traite des matrices comme des n-uplets ou des n-dimentsion listes
+
 chaque élement est un liste de liste de nombre
+
 et chaque liste représente une ligne de la matrice
 
 ## créer un matrice
@@ -16,6 +18,7 @@ remarque :on peut modifier la matrice après l'initialiser dans Python, cependan
 ## manipuler un matrice
 chaque élément dans la matrice est de format  matrix [x][y],x est le nombre de ligne et y est de nombre de colone
 par ex ```print (matrix[x][y])```nous donne l'élément de x ligne y colone de la matrice 'matrix'.
+
 on peut donner la valeur des l'élément de la matrice par ```matrix[x][y]= VALEUR```
 
 ```
