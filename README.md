@@ -22,4 +22,5 @@ commencer à coder avec python
 
 ### Semaine 3
 finir tutoriel de matrice en python
+
 commencer à coder ce qu'on a fait sur python en Java 
