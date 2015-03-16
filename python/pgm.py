@@ -126,28 +126,31 @@ class PGM:
 
         return res
 
-    def smash_list(self,l):
-        res = []
-        for i in l:
-            for j in i:
-                res.append(j)
-        return res
+##    def smash_list(self,l):
+##        res = []
+##        for i in l:
+##            for j in i:
+##                res.append(j)
+##        return res
                 
     def square(self,x=10,y=10,length=100,width=150,color=0):
         # x,y : les coordonnées left-top
         pixels = []
-        line = []
         for k in range(length):
             for i in range(width):
-                line.append((x+i,y+k))
-            pixels.append(line)
+                pixels.append((x+i,y+k))
+
             line = []
 
-        pixels = self.points_in_canvas(self.smash_list(pixels))
+        pixels = self.points_in_canvas(pixels)
 
         self.change_pixels(pixels,color)
 
         return self
+
+    def disque(self,x,y,r):
+        pixels = []
+        for i in range
     
 
     def save_file(self):  # function in out: save the file
