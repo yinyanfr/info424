@@ -27,8 +27,15 @@ Ajouter code qui analise type de image en python
 
 commencer à coder ce qu'on a fait sur python en Java 
 
-Java shige haoyuyan 
+### Semaine 4
+compilation avec "make"
 
-Java dafahao 
+ajouter la fichier 'makefile',à compléter
 
-//niquanjia doushi Java
+Arguments de la ligne de commande
+
+ajouter fichier 'argu_commande_line.py' qui contient des codes pour utiliser après
+
+Continue travailler en python
+
+
