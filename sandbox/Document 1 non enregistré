@@ -1,0 +1,41 @@
+/*
+ *  Project Info424 Generateur
+ *  Author : Yin Yan
+ *  
+ *  Class pgm
+ *  
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+package gene;
+
+import java.io.File;
+
+public class pgm {
+	
+	// Constant gray grade
+	int WHITE = 0;
+	int BLACK = 255;
+	int GRAY = 166;
+	int LIGHTGRAY = 75;
+	
+	// Private propriety
+	private String format = "";
+	private int height = 0;
+	private int width = 0;
+	private int[][] matrice;
+	private String fileCache = "";
+	private Path file;
+	
+	// Definition
+	public pgm(String file){
+		
+	}
+
+}
+
