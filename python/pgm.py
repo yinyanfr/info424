@@ -30,6 +30,7 @@ class PGM:
             self.create_file(create) # else create one as ordered
 
         print(len(self.matrix[0]),len(self.matrix))
+        self.backup()
 
     # Methods
     
@@ -196,6 +197,25 @@ class PGM:
 
         return self
     
+    def backup(self):  # function in out: save the file
+        head = self.format + "\n" + str(self.height) + " " + str(self.width) + "\n"+str(self.graystage) + "\n"
+        middle = self.matrix_to_string()
+        whole = head + "\n" + middle
+        f = open("backup.pgm","w")
+        f.write(whole)
+        f.close()
+
+        return self
+
+    def preview(self):  # function in out: save the file
+        head = self.format + "\n" + str(self.height) + " " + str(self.width) + "\n"+str(self.graystage) + "\n"
+        middle = self.matrix_to_string()
+        whole = head + "\n" + middle
+        f = open("preview.pgm","w")
+        f.write(whole)
+        f.close()
+
+        return self
 
     def save_file(self):  # function in out: save the file
         head = self.format + "\n" + str(self.height) + " " + str(self.width) + "\n"+str(self.graystage) + "\n"
