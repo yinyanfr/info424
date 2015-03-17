@@ -1,4 +1,4 @@
-__author__ = 'Ian'
+__author__ = 'Shabi'
 
 # This is the class for the pgm format
 # At the moment as a prototype of generator which should be written by java
@@ -35,6 +35,7 @@ class PGM:
     # Methods
     
     def get_file(self,name):
+        """get infomation from the file """
         f = open(name, "r+")
         #  get content
         self.format = f.readline()[:-1]
@@ -131,6 +132,8 @@ class PGM:
 ##        return res
                 
     def square(self,x=10,y=10,length=100,width=150,color=0):
+        """créer une carée , de taille length*width ,commencer par point(x,y),
+    initialiser à point (10,10),taille 100*150,couleur=noire"""
         # x,y : les coordonnées left-top
         pixels = []
         for k in range(length):
@@ -144,6 +147,8 @@ class PGM:
         return self
 
     def disque(self,x = 200, y = 200,r = 50, color = 0):
+         """créer un disque , de taille r,commencer par point(x,y),
+    initialiser à point (200,200),taille r=50,couleur=noire"""
         pixels = []
         for i in range(x-r,x+r-1):
             for k in range(y-r,y+r-1):
@@ -157,6 +162,8 @@ class PGM:
         return self
 
     def cercle(self,x = 200, y = 200, r = 50, color = 0):
+         """créer une cercle, de taille r,commencer par point(x,y),
+    initialiser à point (200,200),taille r=50,couleur=noire"""
         pixels = []
         for i in range(x-r,x+r-1):
             for k in range(y-r,y+r-1):
@@ -170,6 +177,8 @@ class PGM:
         return self
 
     def ligne(self,points,color = 0):
+                 """créer une ligne , commencer et terminer par les valeur dans la liste points,
+    couleur initialiser à noire"""
         pixels = []
         point1 = points[0]
         point2 = points[1]
@@ -188,8 +197,10 @@ class PGM:
         self.change_pixels(pixels,color)
 
         return self
+    
 
     def polygon(self, points, color = 0):
+                 """créer une polygone qui parcourir tous les points de la liste points,couleur initialiser à noire"""
         for i in range(1,len(points)):
             self.ligne([points[i-1],points[i]])
             
