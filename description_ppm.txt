@@ -1,0 +1,20 @@
+Le format ppm (portable pixel map) est un format concernant les images couleurs.
+Dans ce format, on associe à chaque pixel trois nombres entre 0 et 255 correspondant à l’intensité des couleurs rouge, vert,bleu (RGB).
+
+Comme le format pgm, le format ppm est composé d'un en-tête et le corps qui contient les données de l'image.
+
+Dans l'en tête, il y a 3 partie: 1- type de ppm (p3 ou p6); 2- largeur et hauteur(séparé par 'espase'); 3- valeur max de RGB pour chaque pixel(0-255).Chaque partie est séparé par 'espase' ou 'entrée',etc.'#'pour ajouter les commentaire.
+
+Dans la partie des données,pour p3,chaque pixel est codé en caractères ASCII, précédées et suivies par un caractère d'espacement. Aucune ligne ne doit dépasser 70 caractères.Pour p6 chaque pixel est codé sur 1 ou 2 bytes selon que la valeur maximale soit inférieure ou supérieure à 256.
+
+exemple:
+P3
+# Le P3 signifie que les couleurs sont en ASCII, 
+3 2
+# par 3 colonnes et 2 lignes,
+255
+# ayant 255 pour valeur maximum, et qu'elles sont en RGB. 
+255   0   0     0 255   0     0   0 255
+255 255   0   255 255 255     0   0   0
+
+
