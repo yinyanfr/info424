@@ -167,7 +167,34 @@ class PGM:
         self.change_pixels(pixels,color)
 
         return self
+
+    def ligne(self,points,color = 0):
+        pixels = []
+        point1 = points[0]
+        point2 = points[1]
+        x1, y1 = point1[0], point1[1]
+        x2, y2 = point2[0], point2[1]
+
+        tmp = [x1,y1]
+        gap = max(x2-x1,y2-y1)
+        for i in range(gap):
+                tmp[0] +=  gap//(x2-x1)
+                tmp[1] += gap//(y2-y1)
+                pixels.append((tmp[0],tmp[1]))
+
+        pixels = self.points_in_canvas(pixels)
+
+        self.change_pixels(pixels,color)
+
+        return self
+
+    def polygon(self, points, color = 0):
+        for i in range(1,len(points)):
+            self.ligne([points[i-1],points[i]])
             
+        self.ligne([points[len(points)-1],points[0]])
+
+        return self
     
 
     def save_file(self):  # function in out: save the file
