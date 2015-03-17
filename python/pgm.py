@@ -1,4 +1,4 @@
-__author__ = 'Shabi'
+__author__ = 'Yin Yan, Shi Changhui'
 
 # This is the class for the pgm format
 # At the moment as a prototype of generator which should be written by java
@@ -147,7 +147,7 @@ class PGM:
         return self
 
     def disque(self,x = 200, y = 200,r = 50, color = 0):
-         """créer un disque , de taille r,commencer par point(x,y),
+        """créer un disque , de taille r,commencer par point(x,y),
     initialiser à point (200,200),taille r=50,couleur=noire"""
         pixels = []
         for i in range(x-r,x+r-1):
@@ -162,7 +162,7 @@ class PGM:
         return self
 
     def cercle(self,x = 200, y = 200, r = 50, color = 0):
-         """créer une cercle, de taille r,commencer par point(x,y),
+        """créer une cercle, de taille r,commencer par point(x,y),
     initialiser à point (200,200),taille r=50,couleur=noire"""
         pixels = []
         for i in range(x-r,x+r-1):
@@ -176,31 +176,54 @@ class PGM:
 
         return self
 
-    def ligne(self,points,color = 0):
-                 """créer une ligne , commencer et terminer par les valeur dans la liste points,
-    couleur initialiser à noire"""
+##    def ligne(self,points,color = 0):
+##        """créer une ligne , commencer et terminer par les valeur dans la liste points,
+##    couleur initialiser à noire"""
+##        pixels = []
+##        point1 = points[0]
+##        point2 = points[1]
+##        x1, y1 = point1[0], point1[1]
+##        x2, y2 = point2[0], point2[1]
+##
+##        tmp = [x1,y1]
+##        gap = max(x2-x1,y2-y1)
+##        for i in range(gap):
+##                tmp[0] +=  gap//(x2-x1)
+##                tmp[1] += gap//(y2-y1)
+##                pixels.append((tmp[0],tmp[1]))
+##
+##        pixels = self.points_in_canvas(pixels)
+##
+##        self.change_pixels(pixels,color)
+##
+##        return self
+
+    def ligne(self, points, couleur = 0):
+        """Dessine un segment dans l'image "image".
+    Les arguments "x1", "y1" et "x2","y2" désignent les coordonnées des extrémités
+    du segment, l'argument "rayon" le rayon et "couleur" sa couleur."""
         pixels = []
         point1 = points[0]
         point2 = points[1]
         x1, y1 = point1[0], point1[1]
         x2, y2 = point2[0], point2[1]
-
-        tmp = [x1,y1]
-        gap = max(x2-x1,y2-y1)
-        for i in range(gap):
-                tmp[0] +=  gap//(x2-x1)
-                tmp[1] += gap//(y2-y1)
-                pixels.append((tmp[0],tmp[1]))
-
-        pixels = self.points_in_canvas(pixels)
-
-        self.change_pixels(pixels,color)
+        for i in range(0,self.width):
+            for j in range(0,self.height):
+                if x1==x2 and i==x2:
+                   self.change_pixel(i,j,couleur)
+                if y1==y2 and j==y2:
+                    self.change_pixel(i,j,couleur)
+                if (y2>y1 and x2>x1) or (y2<y1 and x2>x1):
+                    if x1!=x2 and y1!=y2 and i==j*(x1-x2)//(y1-y2)+x1-y1*(x1-x2)//(y1-y2) and x2>=i>=x1:
+                        self.change_pixel(i,j,couleur)
+                if (y2< y1 and x2<x1) or (y2>y1 and x2 < x1):
+                    if x1!=x2 and y1!=y2 and i==j*(x1-x2)//(y1-y2)+x1-y1*(x1-x2)//(y1-y2) and x1>=i>=x2:
+                        self.change_pixel(i,j,couleur)
 
         return self
-    
 
     def polygon(self, points, color = 0):
-                 """créer une polygone qui parcourir tous les points de la liste points,couleur initialiser à noire"""
+        """créer une polygone qui parcourir tous les points de la liste points,couleur initialiser à noire"""
         for i in range(1,len(points)):
             self.ligne([points[i-1],points[i]])
             
