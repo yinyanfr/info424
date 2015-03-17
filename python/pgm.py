@@ -154,6 +154,19 @@ class PGM:
         self.change_pixels(pixels,color)
 
         return self
+
+    def cercle(self,x = 200, y = 200, r = 50, color = 0):
+        pixels = []
+        for i in range(x-r,x+r-1):
+            for k in range(y-r,y+r-1):
+                if ((i-x)**2 + (k-y)**2 <= r**2) and ((i-x)**2 + (k-y)**2 >= (r-2)**2):
+                    pixels.append((i,k))
+
+        pixels = self.points_in_canvas(pixels)
+
+        self.change_pixels(pixels,color)
+
+        return self
             
     
 
