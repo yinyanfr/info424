@@ -40,5 +40,7 @@ Continue travailler en python
 
 ### Semaine 4 (séance 6)
 Ajouter des fonctions pour créer des image en python
-()
+(carée,disque,cercle-yinyan;ligne,polygone-shi changhui)
+compléter le déscription de PPM(shi) et tutoriel de matrices en Java(yinyan)
+
 
