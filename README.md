@@ -6,7 +6,7 @@
 Voici un projet informatique en generer et analyser les elements en dessin simple et régulier, et complexe soit possible.
 
 ## Progrès
-### Semaine 1
+### Semaine 1 (commence par séance 2)
 Etre familier avec github,
 
 decider les langages à utiliser
@@ -38,4 +38,7 @@ ajouter fichier 'argu_commande_line.py' qui contient des codes pour utiliser apr
 
 Continue travailler en python
 
+### Semaine 4 (séance 6)
+Ajouter des fonctions pour créer des image en python
+()
 
