@@ -20,6 +20,7 @@ class PGM:
         self.format = ""
         self.height = 0
         self.width = 0
+        self.graystage = 255
         self.matrix = [] # matrix[height][width]
         self.filecache = ""
         
@@ -28,29 +29,23 @@ class PGM:
         else:
             self.create_file(create) # else create one as ordered
 
-        print(len(self.matrix),len(self.matrix[0]))
+        print(len(self.matrix[0]),len(self.matrix))
 
     # Methods
     
     def get_file(self,name):
         f = open(name, "r+")
         #  get content
-##        content = ""
-##        while True:
-##            l = f.readline()
-##            if l == "":
-##                break
-##            content += l
-##        f.close()
-##        f = open(name,"r+")
-##        f.write(content)
-            
         self.format = f.readline()[:-1]
         size = f.readline()[:-1] .split(" ")
         self.height = int(size[0])
         self.width = int(size[1])
+        self.graystage = int(f.readline()[:-1])
         self.file = f
         self.file_to_mat();
+        f.close()
+        self.file = open(name,"r+")
+        print(self.format,self.height,self.width,self.graystage)
 
         return self
 
@@ -80,18 +75,19 @@ class PGM:
         # matrix[height][width]
         whole += self.matrix_to_string()
         f.write(whole)
-        f.close()
         self.file = open(head[0],"r+")
-        
 
         return self
 
     def file_to_mat(self):  # function in out: convert file into a matrix
+        l = self.file.readline()
         while True:
             l = self.file.readline()
-            self.matrix.append(l[:-1].split(" "))
             if l == "":
                 return self
+            tmp = l[:-1].split(" ")[:-1]
+            self.matrix.append(tmp)
+            
             
 
 
@@ -140,21 +136,29 @@ class PGM:
             for i in range(width):
                 pixels.append((x+i,y+k))
 
-            line = []
-
         pixels = self.points_in_canvas(pixels)
 
         self.change_pixels(pixels,color)
 
         return self
 
-    def disque(self,x,y,r):
+    def disque(self,x = 200, y = 200,r = 50, color = 0):
         pixels = []
-        for i in range
+        for i in range(x-r,x+r-1):
+            for k in range(y-r,y+r-1):
+                if (i-x)**2 + (k-y)**2 <= r**2:
+                    pixels.append((i,k))
+
+        pixels = self.points_in_canvas(pixels)
+
+        self.change_pixels(pixels,color)
+
+        return self
+            
     
 
     def save_file(self):  # function in out: save the file
-        head = self.format + "\n" + str(self.height) + " " + str(self.width) + "\n"
+        head = self.format + "\n" + str(self.height) + " " + str(self.width) + "\n"+str(self.graystage) + "\n"
         middle = self.matrix_to_string()
         whole = head + "\n" + middle
         self.file.write(whole)
