@@ -1,3 +1,8 @@
+
+from sys import stdin
+
+
+
 __author__ = 'Yin Yan, Shi Changhui'
 
 # This is the class for the pgm format
@@ -259,3 +264,21 @@ class PGM:
         self.file.close()
 
         return True
+
+##    def get_points(self):
+##
+##        
+##
+##
+##
+##
+##if __name__ == '__main__' :
+##	for uneLigne in stdin.readlines() :
+##		uneLigne = uneLigne[:-1] # retirer le '\n' en fin de ligne
+##		print( "-->" + uneLigne + "<--" )
+##		uneChaine = "|"
+##		for s in uneLigne.split() :
+##			uneChaine += s + "|"
+##			print ( uneChaine )
+##
+
