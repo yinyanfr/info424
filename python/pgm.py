@@ -27,6 +27,7 @@ class PGM:
         self.width = 0
         self.graystage = 255
         self.matrix = [] # matrix[height][width]
+        self.bgc = 255
         self.filecache = ""
         
         if create[-3:] == "pgm":
@@ -78,6 +79,7 @@ class PGM:
         self.width = int(head[2])
         if len(head) == 3:
             head.append(WHITE)
+        self.bgc = head[3]
         self.matrix = [[head[3] for col in range(int(self.height))] for row in range(int(self.width))]
         # matrix[height][width]
         whole += self.matrix_to_string()
@@ -264,6 +266,45 @@ class PGM:
         self.file.close()
 
         return True
+
+    def  get_content(self):  # function in : return pixels
+        # function primary
+        pixels = []
+        pixel = []
+        for i in self.matrix:
+            for j in i:
+                if j != self.bgc:
+                    pixel.append(j)
+            pixel = []
+            pixels.append(pixel)
+        return pixels
+
+    def analyse(self):
+        pixels = self.get_content()
+        
+        def equal(pixels):
+            l = len(pixels[0])
+            for i in pixels:
+                if len(i) != l:
+                    return False
+            return True
+
+        def equalhead(pixels):
+            l = pixels[0][0]
+            for i in pixels:
+                if i[1] != l:
+                    return False
+            return True
+
+        def square(pixels):
+            return len(pixels) == len(pixels)[1]
+        print(pixels)
+
+        if equal(pixels) and equalhead(pixels):
+            if square(pixels):
+                print("zhengfangxing")
+            else:
+                print("changfangxing")
 
 ##    def get_points(self):
 ##
