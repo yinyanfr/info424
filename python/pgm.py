@@ -159,7 +159,7 @@ class PGM:
         pixels = []
         for i in range(x-r,x+r-1):
             for k in range(y-r,y+r-1):
-                if (i-x)**2 + (k-y)**2 <= r**2:
+                if (i-x)**2 + (k-y)**2 <= r**2:  # (x-a)^2 + (y-b)^2 < r^2
                     pixels.append((i,k))
 
         pixels = self.points_in_canvas(pixels)
