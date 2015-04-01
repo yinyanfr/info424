@@ -1,0 +1,71 @@
+body{
+    background-color: #f3f3f3;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+header{
+
+}
+
+#water{
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+#can{
+    float: left;
+    height: 400px;
+    width: 200px;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 1em;
+    background-color: aqua;
+}
+
+#cover{
+    /*height: 200px;*/
+    background-color: #f3f3f3;
+}
+
+#percentage{
+    height: 400px;
+    margin-left: 210px;
+    width: 50px;
+    /*border: 1px solid black;*/
+}
+
+#ctrl{
+    margin-top: 30px;
+    clear: both;
+}
+
+footer{
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+footer p{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+}
+
+footer a{
+    margin-right: 40px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+}
