@@ -159,7 +159,7 @@ class PGM:
         pixels = []
         for i in range(x-r,x+r-1):
             for k in range(y-r,y+r-1):
-                if (i-x)**2 + (k-y)**2 <= r**2:  # (x-a)^2 + (y-b)^2 < r^2
+                if (i-x)**2 + (k-y)**2 <= r**2:
                     pixels.append((i,k))
 
         pixels = self.points_in_canvas(pixels)
@@ -229,36 +229,36 @@ class PGM:
 
         return self
 
-    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
-        pixels = []
-        point1 = ligne[0]
-        point2 = ligne[1]
-        x1,y1 = point1[0],point1[1]
-        x2,y2 = point2[0],point2[1]
-        x0,y0 = point[0],point[1]
-        for i in range(0,self.width):
-            for j in range(1,self.height):
-                if y0<y1:
-                    if x0<=x1:
-                        if (x1-x0)//(y1-y0) == i//j or (x2-x0)//(y1-y0)== i//j and x0<=i<=x2 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-                    if x1<x0<x2:
-                        if (x0-x1)//(y1-y0) == i//j or (x2-x0)//(y1-y0)== i//j and x1<=i<=x2 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-                    if x0>=x2:
-                        if (x0-x1)//(y1-y0) == i//j or (x0-x2)//(y1-y0)== i//j and x1<=i<=x0 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-                if y0>y1:
-                    if x0<=x1:
-                        if (x1-x0)//(y0-y1) == i//j or (x2-x0)//(y1-y0)== i//j and x0<=i<=x2 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-                    if x1<x0<x2:
-                        if (x0-x1)//(y0-y1) == i//j or (x2-x0)//(y1-y0)== i//j and x1<=i<=x2 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-                    if x0>=x2:
-                        if (x0-x1)//(y0-y1) == i//j or (x0-x2)//(y1-y0)== i//j and x1<=i<=x0 and y0<=j<=y1:
-                            self.change_pixel(i,j,couleur)
-        return self
+##    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
+##        pixels = []
+##        point1 = ligne[0]
+##        point2 = ligne[1]
+##        x1,y1 = point1[0],point1[1]
+##        x2,y2 = point2[0],point2[1]
+##        x0,y0 = point[0],point[1]
+##        for i in range(0,self.width):
+##            for j in range(1,self.height):
+##                if y0<y1:
+##                    if x0<=x1:
+##                        if (x1-x0)//(y1-y0) == i//j or (x2-x0)//(y1-y0)== i//j and x0<=i<=x2 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##                    if x1<x0<x2:
+##                        if (x0-x1)//(y1-y0) == i//j or (x2-x0)//(y1-y0)== i//j and x1<=i<=x2 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##                    if x0>=x2:
+##                        if (x0-x1)//(y1-y0) == i//j or (x0-x2)//(y1-y0)== i//j and x1<=i<=x0 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##                if y0>y1:
+##                    if x0<=x1:
+##                        if (x1-x0)//(y0-y1) == i//j or (x2-x0)//(y1-y0)== i//j and x0<=i<=x2 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##                    if x1<x0<x2:
+##                        if (x0-x1)//(y0-y1) == i//j or (x2-x0)//(y1-y0)== i//j and x1<=i<=x2 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##                    if x0>=x2:
+##                        if (x0-x1)//(y0-y1) == i//j or (x0-x2)//(y1-y0)== i//j and x1<=i<=x0 and y0<=j<=y1:
+##                            self.change_pixel(i,j,couleur)
+##        return self
                     
 
     def polygon(self, points, color = 0):
