@@ -1,5 +1,5 @@
-
-from sys import stdin
+# -*- coding: utf-8 -*-
+from sys import stdin, argv
 
 
 
@@ -260,7 +260,38 @@ class PGM:
 ##                            self.change_pixel(i,j,couleur)
 ##        return self
                     
+    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
+        pixels = []
+        bian1=[]
+        bian2=[]
+        point1 = ligne[0]
+        point2 = ligne[1]
+        x1,y1 = point1[0],point1[1]
+        x2,y2 = point2[0],point2[1]
+        x0,y0 = point[0],point[1]
+        for i in range(0,self.width):
+            for j in range(1,self.height):
+                if y0 < y1 :
+                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y0<= j<=y1:
+                        bian1.append((i,j))
+                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y0<= j<=y2:
+                        bian2.append((i,j))
+                if y0 < y1 :
+                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y1<= j<=y0:
+                        bian1.append((i,j))
+                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y2<= j<=y0:
+                        bian2.append((i,j))
+        for k in range(len(bian1)):
+            for h in range(bian1[k][0],bian2[k][0]):
+                self.change_pixel(h,bian1[k][1],0)
 
+        print(bian1)
+        print(bian2)
+        return self
+        
+                        
+
+    
     def polygon(self, points, color = 0):
         """créer une polygone qui parcourir tous les points de la liste points,couleur initialiser à noire"""
         for i in range(1,len(points)):
@@ -340,7 +371,7 @@ class PGM:
 
         def square_exam(pixels):  # done
             return len(pixels) == len(pixels[0])
-        #print(pixels)
+        print(pixels)
 
         def square_verifie(square):
             if square:
@@ -352,6 +383,7 @@ class PGM:
                 print("de coordonneés left-top : ", ordonnees[0][0])
                 print("et height : ",len(pixels[0]))
                 print("et width : ",len(pixels))
+            print("de couleur : ",pixels[0][0])
 
         ## disque done
         def disque_exam(pixels):
@@ -369,6 +401,7 @@ class PGM:
             print("C'est un disque")
             print("de centre : ", ordonnees[int(heart)][int(heart)])
             print("de rayon : ", heart)
+            print("de couleur : ",pixels[0][0])
         
         ## Main analyse
         if equal(pixels) and equalhead(pixels):
@@ -398,3 +431,10 @@ class PGM:
 ##			print ( uneChaine )
 ##
 
+##if __name__ == '__main__' :
+##    print argv
+##    if argv[1] == 'cercle' :
+##        print 'je dois tracer un cercle'
+##        p = PGM("new.pgm,600,400").disque().save_file()
+##    else :
+##        print "dois tracer autre chose au'un cercle"
