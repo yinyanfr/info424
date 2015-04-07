@@ -297,22 +297,32 @@ class PGM:
         self.file.write(whole)
         self.file.close()
 
-        return True
+        return self;
 
     def  get_content(self):  # function in : return pixels
         # function primary
         pixels = []
         pixel = []
-        for i in self.matrix:
-            for j in i:
-                if j != self.bgc:
-                    pixel.append(j)
+        ordonnee = []
+        ordonnees = []
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[i])):
+                if self.matrix[i][j] != self.bgc:
+                    pixel.append(self.matrix[i][j])
+                    ordonnee.append((i,j))
+                    
+            if len(pixel) != 0:
+                pixels.append(pixel)
+                ordonnees.append(ordonnee)
             pixel = []
-            pixels.append(pixel)
-        return pixels
+            ordonnee = []
+        return pixels, ordonnees
 
     def analyse(self):
-        pixels = self.get_content()
+        pixels = self.get_content()[0]
+        ordonnees = self.get_content()[1]
+
+        ## square done
         
         def equal(pixels):
             l = len(pixels[0])
@@ -328,15 +338,48 @@ class PGM:
                     return False
             return True
 
-        def square(pixels):
-            return len(pixels) == len(pixels)[1]
-        print(pixels)
+        def square_exam(pixels):  # done
+            return len(pixels) == len(pixels[0])
+        #print(pixels)
 
-        if equal(pixels) and equalhead(pixels):
-            if square(pixels):
-                print("zhengfangxing")
+        def square_verifie(square):
+            if square:
+                print("C'est un carré")  # done
+                print("de coordonneés left-top : ", ordonnees[0][0])
+                print("et width : ",len(pixels))
             else:
-                print("changfangxing")
+                print("C'est un carré longue")
+                print("de coordonneés left-top : ", ordonnees[0][0])
+                print("et height : ",len(pixels[0]))
+                print("et width : ",len(pixels))
+
+        ## disque done
+        def disque_exam(pixels):
+            length = len(pixels)
+            top = len(pixels[0])
+            midtop = len(pixels[int(0.25*length) - 1])
+            mid = len(pixels[int(0.5*length) - 1])
+            midbottom = len(pixels[int(0.75*length) - 1])
+            bottom = len(pixels[length - 1])
+
+            return (top < midtop) and (midtop < mid) and (mid > midbottom) and (midbottom > bottom)
+
+        def disque_verifie():
+            heart = 0.5*len(ordonnees)
+            print("C'est un disque")
+            print("de centre : ", ordonnees[int(heart)][int(heart)])
+            print("de rayon : ", heart)
+        
+        ## Main analyse
+        if equal(pixels) and equalhead(pixels):
+            if square_exam(pixels):
+                square_verifie(True)
+            else:
+                square_verifie(False)
+        elif disque_exam(pixels):
+            disque_verifie()
+        else:
+            print("gui")
 
 ##    def get_points(self):
 ##
