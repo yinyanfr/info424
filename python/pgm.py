@@ -260,34 +260,34 @@ class PGM:
 ##                            self.change_pixel(i,j,couleur)
 ##        return self
                     
-    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
-        pixels = []
-        bian1=[]
-        bian2=[]
-        point1 = ligne[0]
-        point2 = ligne[1]
-        x1,y1 = point1[0],point1[1]
-        x2,y2 = point2[0],point2[1]
-        x0,y0 = point[0],point[1]
-        for i in range(0,self.width):
-            for j in range(1,self.height):
-                if y0 < y1 :
-                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y0<= j<=y1:
-                        bian1.append((i,j))
-                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y0<= j<=y2:
-                        bian2.append((i,j))
-                if y0 < y1 :
-                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y1<= j<=y0:
-                        bian1.append((i,j))
-                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y2<= j<=y0:
-                        bian2.append((i,j))
-        for k in range(len(bian1)):
-            for h in range(bian1[k][0],bian2[k][0]):
-                self.change_pixel(h,bian1[k][1],0)
-
-        print(bian1)
-        print(bian2)
-        return self
+##    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
+##        pixels = []
+##        bian1=[]
+##        bian2=[]
+##        point1 = ligne[0]
+##        point2 = ligne[1]
+##        x1,y1 = point1[0],point1[1]
+##        x2,y2 = point2[0],point2[1]
+##        x0,y0 = point[0],point[1]
+##        for i in range(0,self.width):
+##            for j in range(1,self.height):
+##                if y0 < y1 :
+##                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y0<= j<=y1:
+##                        bian1.append((i,j))
+##                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y0<= j<=y2:
+##                        bian2.append((i,j))
+##                if y0 < y1 :
+##                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y1<= j<=y0:
+##                        bian1.append((i,j))
+##                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y2<= j<=y0:
+##                        bian2.append((i,j))
+##        for k in range(len(bian1)):
+##            for h in range(bian1[k][0],bian2[k][0]):
+##                self.change_pixel(h,bian1[k][1],0)
+##
+##        print(bian1)
+##        print(bian2)
+##        return self
         
                         
 
@@ -438,3 +438,17 @@ class PGM:
 ##        p = PGM("new.pgm,600,400").disque().save_file()
 ##    else :
 ##        print "dois tracer autre chose au'un cercle"
+##
+##for i in sys.argv:
+##    if i = "cercle":
+####appelle la function de crée image et mettre des argument
+####de la liste sys.argv dedans
+##        cercle(sys.argv[i+1],sys.argv[i+2],sys.argv[i+3],sys.argv[i+4])
+##    if i = "square":
+##        square(sys.argv[i+1],sys.argv[i+2],sys.argv[i+3],sys.argv[i+4],sys.argv[i+5])
+##    if i = "disque":
+##        disque(sys.argv[i+1],sys.argv[i+2],sys.argv[i+3],sys.argv[i+4])
+##    if i = "ligne":
+##        ligne(sys.argv[i+1],sys.argv[i+2])
+##    if i = "polygon":
+##        polygon(sys.argv[i+1],sys.argv[i+2])
