@@ -259,35 +259,75 @@ class PGM:
 ##                        if (x0-x1)//(y0-y1) == i//j or (x0-x2)//(y1-y0)== i//j and x1<=i<=x0 and y0<=j<=y1:
 ##                            self.change_pixel(i,j,couleur)
 ##        return self
+
+    
                     
-##    def triangle(self,ligne =[[100,300],[400,300]],point=[200,100],couleur = 0):
-##        pixels = []
-##        bian1=[]
-##        bian2=[]
-##        point1 = ligne[0]
-##        point2 = ligne[1]
-##        x1,y1 = point1[0],point1[1]
-##        x2,y2 = point2[0],point2[1]
-##        x0,y0 = point[0],point[1]
-##        for i in range(0,self.width):
-##            for j in range(1,self.height):
-##                if y0 < y1 :
-##                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y0<= j<=y1:
-##                        bian1.append((i,j))
-##                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y0<= j<=y2:
-##                        bian2.append((i,j))
-##                if y0 < y1 :
-##                    if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and y1<= j<=y0:
-##                        bian1.append((i,j))
-##                    if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and y2<= j<=y0:
-##                        bian2.append((i,j))
-##        for k in range(len(bian1)):
-##            for h in range(bian1[k][0],bian2[k][0]):
-##                self.change_pixel(h,bian1[k][1],0)
-##
-##        print(bian1)
-##        print(bian2)
-##        return self
+    def triangle(self,ligne =[[100,300],[300,300]],point=[200,180],couleur = 0):
+        def abs(n):
+            if n < 0:
+                return -n
+            return n
+        
+        pixels = []
+        bian1=[]
+        bian2=[]
+        point1 = ligne[0]
+        point2 = ligne[1]
+        x1,y1 = point1[0],point1[1]
+        x2,y2 = point2[0],point2[1]
+        x0,y0 = point[0],point[1]
+        for i in range(0,self.width):
+            if i <= x2 and i >= x1 :
+                for j in range(1,self.height):
+                    if y0 < y1 :
+                        if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and j<=y1 and j >= y0 :#and x1<=i<=x0:
+                            bian1.append((i,j))
+                        if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and j<=y2 and j >= y0 :#and x0<=i<=x2:
+                            bian2.append((i,j))
+                    if y0 > y1 :
+                        if j==((y1-y0)//(x1-x0))*i+y0-((y1-y0)//(x1-x0))*x0 and j<=y0 and j >= y1 :#and x1<=i<=x0:
+                            bian1.append((i,j))
+                        if j==((y2-y0)//(x2-x0))*i+y0-((y2-y0)//(x2-x0))*x0 and j<=y0 and j >= y2 :#and x0<=i<=x2:
+                            bian2.append((i,j))
+        print(bian2)
+        print()
+        bian2.reverse()
+        print(bian1)
+        print()
+        print(bian2)
+        print()
+        for v in range(1,len(bian1)):
+            #print(int(bian1[v][1])-int(bian1[v-1][1]))
+            gap = abs(int(bian1[v][1])-int(bian1[v-1][1]))
+            if gap != 1:
+                
+                for u in range(1,gap):
+                    bian1.append((bian1[v][0],bian1[v][1]+u))
+                    #print(bian1)
+        for w in range(1,len(bian2)):
+            gap2= abs(int(bian2[w][1])-int(bian2[w-1][1]))
+            if gap2 != 1:
+                for z in range(1,gap2):
+                    bian2.append((bian2[w][0],bian2[w][1]+z))
+        
+
+        print(bian1)
+        print()
+        print(bian2)
+        for k in range(min(len(bian1),len(bian2))):         
+            for h in range(bian1[k][0],bian2[k][0]):
+                pixels.append([bian1[k][1],h])
+        
+
+        pixels = self.points_in_canvas(pixels)
+
+        self.change_pixels(pixels,0)
+        self.change_pixel(x0,y0,0)
+
+        ##print(bian1)
+        ##print(bian2)
+
+        return self
         
                         
 
@@ -330,7 +370,7 @@ class PGM:
 
         return self;
 
-    def  get_content(self):  # function in : return pixels
+    def get_content(self):  # function in : return pixels
         # function primary
         pixels = []
         pixel = []
