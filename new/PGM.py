@@ -18,15 +18,17 @@ class PGM:
         self.painter = []
         self.get_file()
         self.temp = []
+        self.paint()
 
     def get_file(self):
-        if len(argv) > 1:
+        if len(argv) > 5:
             self.width = int(argv[2])
             self.height = int(argv[3])
             self.backgroundColor = int(argv[4])
             self.painter = argv[5:]
             self.matrix_generate()
         else:
+            self.painter = argv[1:]
             self.read_file()
 
         return self
@@ -43,7 +45,6 @@ class PGM:
         l = l[4:]
         for i in l:
             tmp = i.split(' ')[:-1]
-            #print tmp
             self.matrix.append(tmp)
 
         return self
@@ -86,6 +87,19 @@ class PGM:
 
         return self
 
+    def paint(self):
+        p = self.painter
+        if len(p) == 0:
+            return self
+        else:
+            if p[0] == "square":
+                self.square(int(p[1]), int(p[2]), int(p[3]), int(p[4]))
+            elif p[0] == "cercle":
+                self.cercle(int(p[1]), int(p[2]), int(p[3]))
+            elif p[0] == "disque":
+                self.disque(int(p[1]), int(p[2]), int(p[3]))
+            return self
+
     def square(self,x=10,y=10,length=100,width=150,color=0):
         """créer une caree , de taille length*width ,commencer par point(x,y),
     initialiser à point (10,10),taille 100*150,couleur=noire"""
@@ -98,7 +112,7 @@ class PGM:
 
         pixels = self.points_in_canvas(pixels)
 
-        self.change_pixels(pixels,color)
+        self.change_pixels(pixels, color)
 
         return self
 

@@ -1,5 +1,10 @@
 # info424
 
+## Memo
+python test.py P2 600 400 255 disque 10 10 300 > new5.pgm
+
+pour dessiner quelque chose dans un nouveau pgm
+
 ## This is just a project we do as a school work
 
 ## Description
