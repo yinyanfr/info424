@@ -7,7 +7,7 @@ from sys import argv
 
 
 def main():
-    pic = PPM()
+    pic = PGM()
 
     pic.analyse()
 
